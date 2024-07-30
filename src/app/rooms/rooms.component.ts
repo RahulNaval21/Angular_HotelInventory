@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import { Room, RoomList } from './rooms';
 
 @Component({
@@ -8,7 +8,7 @@ import { Room, RoomList } from './rooms';
 
   // host: {ngSkipHydration: 'true'},
 })
-export class RoomsComponent implements OnInit{
+export class RoomsComponent implements OnInit, DoCheck{
 
   hotelName = "ITC";
   numberOfRooms = 10;
@@ -52,6 +52,10 @@ export class RoomsComponent implements OnInit{
 
   constructor(){
 
+  }
+
+  ngDoCheck(): void {
+    console.log('doCheck is called')
   }
 
   ngOnInit(): void {
