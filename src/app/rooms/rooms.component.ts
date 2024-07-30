@@ -22,15 +22,32 @@ export class RoomsComponent implements OnInit{
     bookedRooms: 5,
   }
 
+  title = 'Room List'
+
   roomList: RoomList[] = []
 
   toggle(){
     this.hideRooms = !this.hideRooms
+    this.title = "Rooms List"
   }
 
   selectRoom(room:RoomList){
     console.log(room)
     this.selectedRoom = room
+  }
+
+  addRoom(){
+    const room: RoomList = {
+      roomNumber: 104,
+        roomType: 'Super-Delux',
+      amenities: 'Ac',
+      price: 5000,
+      checkInTime: new Date('30-july-2024'),
+      checkOutTime: new Date('31-july-2024'),
+    }
+
+   // this.roomList.push(room);
+   this.roomList = [...this.roomList,room];
   }
 
   constructor(){
